@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './Routes';
 import './App.css';
 
-function App() {
+function App({ colors }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <BrowserRouter>
+        <Routes colors={colors} />
+      </BrowserRouter>
     </div>
   );
 }
+
+App.defaultProps = {
+  colors: [
+    { name: 'navy', value: '#173251' },
+    { name: 'slate-blue', value: '#5396B3' },
+    { name: 'cream', value: '#F8F6F3' },
+    { name: 'beige', value: '#F1D9CB' },
+    { name: 'tan', value: '#F4D69E' },
+  ],
+};
 
 export default App;
